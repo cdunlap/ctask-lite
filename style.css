@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	margin: 0 0 0 0;
+	background-color: #000;
+	color: #CCCCCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+}
+a, a:link, a:visited { color: #fff; }
+a:hover { color:#0099FF; }
+
+input, textarea, select
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#header
+{
+	background-image: url('images/header-bg.png');
+	background-repeat: repeat-x;
+	background-position: top;
+}
+#footer
+{
+	font-size: x-small;
+	text-align: center;
+}
+	
+thead tr
+{
+	background-color: #333;
+	font-weight: bold;
+}
+
+.field-header
+{
+	background-color: #333;
+	font-weight: bold;
+}
+
+#ajax-working, #ajax-error, #ajax-success
+{ 
+	float: right;
+	z-index: 9999;
+}
+.taskRow:hover { cursor: pointer; background-color: #111; }
+.ui-button:hover { cursor: pointer; }
+.odd { background-color: #111; }
+.even { background-color: #222; }
+
+#dlgTaskDetails, #dlgDeleteConfirm { font-size: small; }
+
+/*
+.prio-Low { background-color: #003300; }
+.prio-Medium { background-color: #993300; }
+.prio-High { background-color: #990000; }
+
+.status-New { }
+.status-Complete { }
+*/
