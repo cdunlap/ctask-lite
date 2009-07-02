@@ -1,4 +1,21 @@
 <?php
+/*
+	CTask-Lite v1.0, a web-based task management system
+    Copyright (C) 2009 Cale Dunlap (cale@caledunlap.com)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 require_once("settings.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -177,7 +194,7 @@ function showDetails(taskId)
 	}, function(data) {
 		if( data.success == true )
 		{
-			var task = data.task[0];
+			var task = data.task;
 			$('#editTask_TaskId').val(taskId);
 			$('#editTask_Type').val(task.type);
 			$('#editTask_Priority').val(task.priority);
@@ -324,6 +341,13 @@ $db = sqlite_open($config['dbpath']);
 	$tasks = sqlite_array_query($db, "SELECT * FROM tasks");
 	foreach( $tasks as $task )
 	{
+		if( get_magic_quotes_gpc() )
+		{
+			foreach( array_keys($task) as $Key )
+			{
+				$task[$Key] = stripslashes($task[$Key]);
+			}
+		}
 		echo "<tr class=\"taskRow\" id=\"task_$task[id]\">";
 		echo "<td class=\"task_id\" onClick=\"showDetails($task[id])\">$task[id]</td>";
 		echo "<td class=\"task_date\" onClick=\"showDetails($task[id])\">$task[date]</td>";
@@ -416,7 +440,7 @@ $db = sqlite_open($config['dbpath']);
 sqlite_close($db);
 ?>
 <div id="footer" class="ui-widget-content">
-Powered by <a href="http://code.google.com/p/ctask/" target="_blank">CTask</a> v1.0<br/>
+Powered by <a href="http://cdunlap.github.com/ctask-lite/" target="_blank">CTask-Lite</a> v1.0<br/>
 <a href="http://www.gnu.org/licenses/gpl.html" target="_blank"><img src="images/gplv3-88x31.png" border="0" /></a>
 </div>
 </body>
