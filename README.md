@@ -3,8 +3,9 @@
 CTask-Lite is perfect for users not worried about the sensitivity of their task information and do not want the extra "bloat" that might be associated with other task management tools. For example, I use this software to allow game modification teams that I work with to task me with programming assignments or list bugs that need attention. Any user can go to the website and add, remove, or modify a task. There are few features, which keep it simple. It is a task management system in the most basic form.
 
 ## Demo
-(http://demo.caledunlap.com/ctask-lite)
-*NOTE*: The demo site's database resets every 15 minutes
+[Demo Installation](http://demo.caledunlap.com/ctask-lite)
+
+**NOTE:** The demo database resets every 15 minutes
 
 ## Requirements
 * PHP5+
